@@ -1,0 +1,125 @@
+  body{
+  font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Popup Background */
+      .popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: fadeIn 0.4s ease;
+      }
+
+      /* Popup Box */
+      .popup-content {
+        width: 320px;
+        padding: 30px;
+        border-radius: 20px;
+        backdrop-filter: blur(15px);
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        color: white;
+        position: relative;
+        animation: slideUp 0.4s ease;
+      }
+
+      /* Close Button */
+      .close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      /* Subtitle */
+      .subtitle {
+        font-size: 13px;
+        opacity: 0.8;
+        margin-bottom: 20px;
+      }
+
+      /* Input Box */
+      .input-box {
+        position: relative;
+        margin-bottom: 20px;
+      }
+
+      .input-box input {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        outline: none;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+      }
+
+      /* Floating Label */
+      .input-box label {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 14px;
+        pointer-events: none;
+        transition: 0.3s;
+        color: #ddd;
+      }
+
+      .input-box input:focus + label,
+      .input-box input:valid + label {
+        top: -8px;
+        font-size: 12px;
+        color: #fff;
+      }
+
+      /* Button */
+      .confirm-btn {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 8px;
+        background: #00c9ff;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .confirm-btn:hover {
+        background: #92fe9d;
+        transform: scale(1.05);
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          transform: translateY(50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }

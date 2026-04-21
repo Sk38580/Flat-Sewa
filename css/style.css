@@ -1,0 +1,33 @@
+
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+}
+
+ /* Gallery layout */
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Each item */
+.item {
+    width: 250px;
+    text-align: center;
+}
+
+/* Image fix */
+.item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;   /* ⭐ important */
+    border-radius: 10px;
+}
+
+.item p {
+    margin-top: 8px;
+    font-weight: bold;
+} 
