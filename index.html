@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+body{
+  height:100vh;
+  background:#eaf2ff;
+  position:relative;
+  overflow:hidden;
+}
+
+/* BACKGROUND */
+.bg{
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:0;
+}
+
+/* NAVBAR */
+.navbar{
+  position:relative;
+  z-index:2;
+  margin:20px;
+  padding:15px 30px;
+  background:#fff;
+  border-radius:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.05);
+}
+
+.logo{font-size:20px;font-weight:600;color:#3b82f6;}
+
+/* MAIN */
+.container{
+  position:relative;
+  z-index:2;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-top:40px;
+}
+
+/* CARD */
+.card{
+  width:380px;
+  padding:30px;
+  background:#fff;
+  border-radius:20px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.08);
+}
+
+.card h2{text-align:center;margin-bottom:10px;color:#2c3e50;}
+.card p{text-align:center;color:#777;margin-bottom:25px;}
+
+.input{margin-bottom:15px;}
+
+.input input{
+  width:100%;
+  padding:13px;
+  border-radius:12px;
+  border:1px solid #e0e0e0;
+  background:#f4f8ff;
+  outline:none;
+}
+
+.signup-btn{
+  width:100%;
+  margin-top:10px;
+  padding:13px;
+  border:none;
+  border-radius:25px;
+  background:linear-gradient(135deg,#4f8cff,#2b6cff);
+  color:#fff;
+  font-size:16px;
+  cursor:pointer;
+  text-decoration: none;
+  padding-left: 128px;
+  padding-right: 128px;
+}
+
+.login-link{
+  text-align:center;
+  margin-top:15px;
+}
+
+.login-link a{
+  color:#3b82f6;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SAME SVG BACKGROUND -->
+<svg class="bg" viewBox="0 0 1440 800" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#dbeafe"/>
+      <stop offset="100%" stop-color="#bfdbfe"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1440" height="800" fill="url(#g1)"/>
+
+  <path d="M0,600 C300,500 500,700 800,600 C1100,500 1300,700 1440,650 L1440,800 L0,800 Z" fill="#c7dbff" opacity="0.6"/>
+  <path d="M0,650 C300,550 500,750 800,650 C1100,550 1300,750 1440,700 L1440,800 L0,800 Z" fill="#a7c7ff" opacity="0.6"/>
+
+  <rect x="950" y="300" width="300" height="150" rx="15" fill="#ffffff" opacity="0.4"/>
+  <rect x="1050" y="200" width="250" height="120" rx="15" fill="#ffffff" opacity="0.3"/>
+</svg>
+
+<div class="navbar">
+  <img src="./image/logo.jpeg" height="80">
+  <h2>Sign Up</h2>
+</div>
+
+<div class="container">
+  <div class="card">
+    <h2>Create Account</h2>
+    <p>Enter your details to sign up</p>
+
+    <div class="input"><input placeholder="Full Name"></div>
+    <div class="input"><input type="tel" placeholder="Phone Number"></div>
+    <div class="input"><input type="email" placeholder="Email Address"></div>
+    <div class="input"><input type="password" placeholder="Password"></div>
+<br>
+    <div>
+      <a href="./html/sign-up.html" class="signup-btn">Sign Up</a>
+      <!-- <link rel="stylesheet" href="Flatsewa.html"> -->
+    </div>
+
+    <div class="login-link">
+      Already have an account? <a href="./html/login.html">Login</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
