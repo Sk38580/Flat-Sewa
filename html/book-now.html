@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bookingform.css">
+</head>
+<body>
+    <div id="bookingForm" class="popup">
+      <div class="popup-content">
+        <span onclick="closeBooking()" class="close">&times;</span>
+
+        <h2>🏠 Book Your Room</h2>
+        <p class="subtitle">Fill details to confirm your stay</p>
+
+        <form onsubmit="confirmBooking(event)">
+          <div class="input-box">
+            <input type="text" required />
+            <label>Your Name</label>
+          </div>
+
+          <div class="input-box">
+            <input type="email" required />
+            <label>Email Address</label>
+          </div>
+          <p>Booking date</p>
+          <div class="input-box">
+            <input type="date" required />
+
+            <!-- <label>Booking Date</label> -->
+          </div>
+
+          <button type="submit" class="confirm-btn">Confirm Booking</button>
+        </form>
+      </div>
+    </div>
+     
+    <script>
+      function closeBooking() {
+        document.getElementById("book-now").style.display = "none";
+      }
+
+      function confirmBooking(e) {
+        e.preventDefault();
+        alert("Booking Confirmed ✅");
+        closeBooking();
+      }
+    </script>
+  </body>
+</html>
