@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Profile</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #0f1c2e;
+    color: white;
+    text-align: center;
+}
+
+/* Profile circle */
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(orange, darkorange);
+    border-radius: 50%;
+    margin: 40px auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+}
+
+/* Name */
+.name {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.status {
+    color: gray;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px;
+}
+
+.actions div {
+    background: #1e2b3c;
+    padding: 15px;
+    border-radius: 15px;
+    width: 100px;
+    cursor: pointer;
+}
+
+/* Info box */
+.info {
+    background: #1e2b3c;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: left;
+}
+</style>
+
+</head>
+<body>
+
+<div class="profile-pic" id="profileLetter">S</div>
+
+<div class="name" id="profileName">Username</div>
+<div class="status">online</div>
+
+<div class="actions">
+    <div onclick="choosePhoto()">📷<br>Set Photo</div>
+    <!-- <div onclick="changePhoto()">📷<br>Set Photo</div> -->
+    <div onclick="editName()">✏️<br>Edit Info</div>
+    <div>⚙️<br>Settings</div>
+</div>
+
+<!-- Hidden file input -->
+<input type="file" id="fileInput" accept="image/*" style="display:none">
+
+<div class="info">
+    <p onclick="openBookings()" style="cursor:pointer;">
+        <b>My Booking Details</b><br>
+    
+    </p></div>
+<div>
+    <p onclick="logout()" style="cursor:pointer; color:red;">
+        <b>Logout</b><br>
+        
+    </p></div>
+</div>
+<script>
+    
+
+// File chooser open
+function choosePhoto() {
+    document.getElementById("fileInput").click();
+}
+
+// Image select hone ke baad
+document.getElementById("fileInput").addEventListener("change", function() {
+    let file = this.files[0];
+
+    if(file) {
+        let reader = new FileReader();
+
+        reader.onload = function(e) {
+            let imageData = e.target.result;
+
+            // Save image
+            localStorage.setItem("profileImage", imageData);
+
+            // Show in profile page (agar img use kar rahe ho)
+            let profileImg = document.getElementById("profileImg");
+            if(profileImg) profileImg.src = imageData;
+
+            // Agar circle letter hai to replace karo
+            let circle = document.getElementById("profileLetter");
+            if(circle) {
+                circle.innerHTML = `<img src="${imageData}" style="width:100%;height:100%;border-radius:50%;">`;
+            }
+        }
+
+        reader.readAsDataURL(file);
+    }
+});
+
+
+window.onload = function() {
+    let savedImg = localStorage.getItem("profileImage");
+
+    if(savedImg) {
+        let circle = document.getElementById("profileLetter");
+        if(circle) {
+            circle.innerHTML = `<img src="${savedImg}" style="width:100%;height:100%;border-radius:50%;">`;
+        }
+    }
+}
+
+
+// Open booking page
+function openBookings() {
+    alert("Updated Soon");
+    // future:
+    // window.location.href = "booking.html";
+}
+
+// Logout function
+function logout() {
+    localStorage.clear();
+    alert("Logged out successfully!");
+    window.location.href = "Flatsewa.html"; // home page
+}
+
+// Load saved name
+let name = localStorage.getItem("username") || "Username";
+document.getElementById("profileName").innerText = name;
+document.getElementById("profileLetter").innerText = name.charAt(0);
+
+// Edit name
+function editName() {
+    let newName = prompt("Enter your name:");
+    if(newName) {
+        localStorage.setItem("username", newName);
+        location.reload();
+    }
+}
+
+// // Change photo (simple)
+// function changePhoto() {
+//     alert("Image upload next step me add karenge 👍");
+// }
+</script>
+
+</body>
+</html>
