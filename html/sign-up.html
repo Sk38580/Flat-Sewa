@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlatSewa</title>
+    <link rel="stylesheet" href="../css/Flatsewa.css">
+    <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+    <div class="logo">
+    <img src="../image/Flatsewalogo.jpeg" alt="Flatsewa" class="circle-logo" >
+    </div>
+    <div class="search-box">
+      <input type="text" placeholder="Search flats, rooms...">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+
+    <div class="profile" onclick="openProfilePage()">
+    <img src="../image/profileimage.png" id="profileImg">
+    <span id="profileName">Username</span>
+</div>
+
+    </div></header>
+    <div class="sk">
+    <img src="../image/homefront.jpeg" alt="singleroom" class="location">
+    <span>
+    <h3>2 BHK Flat Siwan, Bihar</h3>
+    <p class="rating">⭐⭐⭐⭐☆ (4.5)</p>
+    <div class="location">
+    <i class="fa-solid fa-location-dot"></i>
+    Near GEC Siwan
+    </div>
+    <h5>Price : 5,000</h5>
+    <button onclick="window.location.href='book-now.html'">Book Now</button>
+    <button onclick="openDetails('see-details.html')">See Details</button>
+    </span>
+    </div><hr>
+    <div class="sk">
+    <img src="../image/front2.jpeg" alt="Random">
+     <span>
+    <h3> Single Room Siwan, Bihar</h3>
+    <p class="rate">⭐⭐⭐⭐ (4.0)</p>
+    <div class="location">
+    <i class="fa-solid fa-location-dot"></i>
+    Near GEC Siwan
+    </div>
+    <h5>Price : 2,500</h5>
+    <button onclick="window.location.href='book-now.html'">Book Now</button>
+    <button onclick="openDetails('single-details.html')">See Details</button>
+    </span>
+    </div>
+    <script>
+
+function loadProfile() {
+    let savedName = localStorage.getItem("username");
+    let savedImg = localStorage.getItem("profileImage");
+
+    // Name update
+    if(savedName && document.getElementById("profileName")) {
+        document.getElementById("profileName").innerText = savedName;
+    }
+
+    // Image update
+    if(savedImg && document.getElementById("profileImg")) {
+        document.getElementById("profileImg").src = savedImg;
+    }
+}
+
+// Page load par run
+window.onload = loadProfile;
+
+// Jab user dusre page se wapas aaye (important 🔥)
+window.addEventListener("focus", loadProfile);
+
+function openProfilePage() {
+    window.location.href = "profile.html";
+}
+
+function openDetails(page) {
+    window.location.href = page;
+}
+
+function openBooking() {
+    document.getElementById("book-now").style.display = "block";
+}
+
+function closeBooking() {
+    document.getElementById("book-now").style.display = "none";
+}
+
+function confirmBooking(event) {
+    event.preventDefault();
+    alert("✅ Room Booked Successfully!");
+    document.getElementById("book-now").style.display = "none";
+}
+
+</script>
+</body>
+</html>
